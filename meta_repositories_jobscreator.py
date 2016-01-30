@@ -11,6 +11,15 @@ repositories_file = open("repository_list.yml", 'r')
 repositories = yaml.load(repositories_file)
 repositories_file.close()
 
+# Create target directory if it doesn't exist
+if not os.path.exists('target'):
+    os.makedirs('target')
+
+if not repositories:
+    open("target/meta_repositories_jobscreator.yml", 'a').close
+    print "No repositories in 'repository_list.yml' file. Exiting..."
+    exit(0)
+
 # Validate input and store objects
 jjb_projects = {}
 for repository_definition in repositories:
@@ -63,10 +72,6 @@ yaml_dumped = yaml.dump(
     explicit_start=True,
     indent=2
 )
-
-# Create target directory if it doesn't exist
-if not os.path.exists('target'):
-    os.makedirs('target')
 
 # Write to a file the yaml generated
 jjb_root_yaml = open("target/meta_repositories_jobscreator.yml", 'w')

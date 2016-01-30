@@ -4,7 +4,7 @@
 #####- meta-jjb-root job:
 The goal of meta-jjb-root job is to create (and update) dynamically the "{Project}-jjb" for several projects given their git URL.
 
-For each "{Project}-jjb" the goal is to create (and update) dynamically all the jobs related to the respective project. It will look for files at '.jenkins' folder at the project root, and run JJB using the file 'main.yml'.
+For each "{Project}-jjb" the goal is to create (and update) dynamically all the jobs related to the respective project. It will look for files at '.jenkins' folder at the project root, and run JJB using the file 'jobs.yml'.
 
 **Note**: The definition of this {Project}-jjb will recursive load files in the path defined by the variable *$JJB_GLOBALS_PATH*. This variable by default is the path where the globals macros and templates defined in this repository are stored.
 

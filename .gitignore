@@ -1,5 +1,6 @@
 .DS_Store
 .idea
-jenkins_jobs.ini
+jenkins_config.ini
 target/
 venv/
+.vagrant
