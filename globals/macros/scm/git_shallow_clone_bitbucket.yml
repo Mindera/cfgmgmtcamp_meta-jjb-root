@@ -1,0 +1,30 @@
+---
+
+- scm:
+    name: git_default
+    scm:
+      - git: &GIT_DEFAULT
+          url: "{url}"
+          branches:
+            - "*/master"
+          skip-tag: true
+          shallow-clone: false
+          wipe-workspace: false
+
+- scm:
+    name: git_shallow_clone_v1
+    scm:
+      - git: &GIT_SHALLOW_CLONE
+          <<: *GIT_DEFAULT
+          shallow-clone: true
+
+- scm:
+    name: git_shallow_clone_v2
+    scm:
+      - git:
+          <<: *GIT_DEFAULT
+          shallow-clone: true
+          excluded-regions:
+            - '{excluded-region}'
+          included-regions:
+            - '{included-region}'

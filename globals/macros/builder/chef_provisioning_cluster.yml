@@ -1,0 +1,11 @@
+---
+
+- builder:
+    name: x_chef_provisioning_cluster_runlist_with_berks_v1
+    builders:
+      - shell: |
+          #!/bin/bash
+          set -e
+          /usr/bin/chef exec bundle update
+          /usr/bin/chef exec bundle exec rake jenkins:attributes ENVIRONMENT={environment}
+          /usr/bin/chef exec bundle exec rake all RUN_LIST={runlist} BERKS=true

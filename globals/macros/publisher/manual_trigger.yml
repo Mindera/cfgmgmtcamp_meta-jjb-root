@@ -1,0 +1,9 @@
+---
+
+- publisher:
+    name: x_manual_trigger_v1
+    publishers:
+      - pipeline:
+          project: '{job}'
+          current-parameters: true
+

@@ -1,0 +1,60 @@
+---
+
+- job-template:
+    name: '{repository}-jjb'
+    description: "Do NOT edit this job through the web! "
+    project-type: freestyle
+    node: master
+    logrotate:
+      numToKeep: 20
+
+    properties:
+      - x_pipeline__jjb
+
+    scm:
+      - git_shallow_clone_v2:
+          url: '{giturl}'
+          included-region: '.jenkins/jobs.yml'
+
+    triggers:
+      - pollscm: "H/5 * * * *"
+
+    wrappers:
+      - timestamps
+
+    builders:
+      - shell: |
+          /usr/local/bin/jenkins-jobs -l DEBUG update $JJB_GLOBALS_PATH:.jenkins/jobs.yml
+      - shell: |
+          /usr/local/bin/jenkins-view-builder -l DEBUG update $JJB_GLOBALS_PATH:.jenkins/views.yml
+
+    publishers:
+      - trigger-parameterized-builds:
+          - project: '{repository}-build'
+            condition: SUCCESS
+            git-revision: True
+
+
+
+- job-template:
+    name: '{repository}-jvb'
+    description: "Do NOT edit this job through the web! "
+    project-type: freestyle
+    node: master
+    logrotate:
+      numToKeep: 20
+
+    scm:
+      - git_shallow_clone_v2:
+          url: '{giturl}'
+          included-region: '.jenkins/views.yml'
+
+    triggers:
+      - pollscm: "H/5 * * * *"
+
+    wrappers:
+      - timestamps
+
+    builders:
+      - shell: |
+          /usr/local/bin/jenkins-view-builder -l DEBUG update $JJB_GLOBALS_PATH:.jenkins/views.yml

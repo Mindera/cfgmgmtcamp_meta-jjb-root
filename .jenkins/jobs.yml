@@ -1,0 +1,16 @@
+---
+
+- job:
+    name: "meta-jjb-root"
+    description: "Creates and configures the projects jjb jobs."
+    project-type: freestyle
+    node: master
+    logrotate:
+      numToKeep: 20
+    scm:
+      - git_shallow_clone_v1:
+          url: https://github.com/Mindera/cfgmgmtcamp_meta-jjb-root.git
+    triggers:
+      - pollscm: "*/5 * * * *"
+    builders:
+      - shell: bash builder.sh

@@ -1,0 +1,60 @@
+---
+
+- builder:
+    name: x_ansible_deploy_product_v1
+    builders:
+      - x_ansible_playbook_v1:
+          playbook_name: "{playbook_name}"
+          playbook_version: "{playbook_version}"
+          vars:  >
+              env={env}
+              product={product}
+              app_version={app_version}
+              web_service_checker_env={web_service_checker_env}
+              web_service_checker_env_port={web_service_checker_env_port}
+              web_service_checker_endpoint={web_service_checker_endpoint}
+              web_service_checker_url={web_service_checker_url}
+              web_service_checker_healthcheck={web_service_checker_healthcheck}
+              chef_environment={chef_environment}
+
+
+- builder:
+    name: x_ansible_deploy_product_v2
+    builders:
+      - x_ansible_playbook_v1:
+          playbook_name: "{playbook_name}"
+          playbook_version: "{playbook_version}"
+          vars:  >
+              env={env}
+              product={product}
+              app_version={app_version}
+              web_service_checker_env={web_service_checker_env}
+              web_service_checker_env_port={web_service_checker_env_port}
+              web_service_checker_endpoint={web_service_checker_endpoint}
+              web_service_checker_url={web_service_checker_url}
+              web_service_checker_healthcheck={web_service_checker_healthcheck}
+              web_service_check_hosts={web_service_check_hosts}
+              chef_environment={chef_environment}
+
+- builder:
+    name: x_ansible_deploy_product_v3
+    builders:
+      - x_ansible_playbook_v1:
+          playbook_name: "{playbook_name}"
+          playbook_version: "{playbook_version}"
+          vars:  >
+              env={env}
+              product={product}
+              app_version={app_version}
+              serial={serial}
+              web_service_checker_env={web_service_checker_env}
+              web_service_checker_env_port={web_service_checker_env_port}
+              web_service_checker_env_protocol={web_service_checker_env_protocol}
+              web_service_checker_endpoint={web_service_checker_endpoint}
+              web_service_checker_url={web_service_checker_url}
+              web_service_checker_url_protocol={web_service_checker_url_protocol}
+              web_service_checker_healthcheck={web_service_checker_healthcheck}
+              web_service_check_hosts={web_service_check_hosts}
+              chef_environment={chef_environment}
+              slack_channel={slack_channel}
+              slack_token={slack_token}

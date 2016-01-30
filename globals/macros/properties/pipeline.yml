@@ -1,0 +1,78 @@
+---
+
+- property:
+    name: x_pipeline__jjb
+    properties:
+      - delivery-pipeline:
+          stage: Meta
+          task: JJB
+
+- property:
+    name: x_pipeline__build
+    properties:
+      - delivery-pipeline:
+          stage: Build
+          task: Build
+
+- property:
+    name: x_pipeline__dev_deploy
+    properties:
+      - delivery-pipeline:
+          stage: DEV
+          task: Deploy
+
+- property:
+    name: x_pipeline__mock_deploy
+    properties:
+      - delivery-pipeline:
+          stage: MOCK
+          task: Deploy
+
+- property:
+    name: x_pipeline__qa_deploy
+    properties:
+      - delivery-pipeline:
+          stage: QA
+          task: Deploy
+
+- property:
+    name: x_pipeline__staging_deploy
+    properties:
+      - delivery-pipeline:
+          stage: STAGING
+          task: Deploy
+
+- property:
+    name: x_pipeline__aqa_deploy
+    properties:
+      - delivery-pipeline:
+          stage: AQA
+          task: Deploy
+
+- property:
+    name: x_pipeline__dev_test
+    properties:
+      - delivery-pipeline:
+          stage: DEV
+          task: Test
+
+- property:
+    name: x_pipeline__mock_test
+    properties:
+      - delivery-pipeline:
+          stage: DEV
+          task: Test
+
+- property:
+    name: x_pipeline__qa_test
+    properties:
+      - delivery-pipeline:
+          stage: AQA
+          task: Test
+
+- property:
+    name: x_pipeline__production_deploy
+    properties:
+      - delivery-pipeline:
+          stage: Production
+          task: Deploy

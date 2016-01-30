@@ -1,0 +1,3 @@
+giturlparse.py==0.0.5
+jenkins-job-builder==1.4.0
+jenkins-view-builder==0.5.0

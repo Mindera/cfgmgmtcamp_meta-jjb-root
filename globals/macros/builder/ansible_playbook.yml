@@ -1,0 +1,11 @@
+---
+
+- builder:
+    name: x_ansible_playbook_v1
+    builders:
+      - shell: |
+          #!/bin/bash
+          bin/mind_ansible \
+          playbooks/{playbook_name}/{playbook_version}/main.yml \
+          -u ec2-user \
+          -e "{vars}"

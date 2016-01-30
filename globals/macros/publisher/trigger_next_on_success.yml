@@ -1,0 +1,10 @@
+---
+
+- publisher:
+    name: x_trigger_next_on_success_v1
+    publishers:
+      - trigger-parameterized-builds:
+          - project: '{job}'
+            condition: SUCCESS
+            current-parameters: true
+

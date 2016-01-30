@@ -1,0 +1,22 @@
+---
+
+- builder:
+    name: x_chef_provisioning_ami_runlist_with_berks_v1
+    builders:
+      - shell: |
+          #!/bin/bash
+          set -e
+          /usr/bin/chef exec bundle update
+          /usr/bin/chef exec bundle exec rake jenkins:pipeline_version
+          /usr/bin/chef exec bundle exec rake all RUN_LIST={runlist} BERKS=true
+
+
+- builder:
+    name: x_chef_provisioning_ami_named_runlist_v1
+    builders:
+      - shell: |
+          #!/bin/bash
+          set -e
+          /usr/bin/chef exec bundle update
+          /usr/bin/chef exec bundle exec rake jenkins:pipeline_version
+          /usr/bin/chef exec bundle exec rake all NAMED_RUN_LIST={named_runlist}
