@@ -18,7 +18,7 @@ Not only versions and stores meta-jjb-root config files, but also global files f
 ## Instalation and configuration of JJB
 http://ci.openstack.org/jenkins-job-builder/installation.html
 
-#### jenkins_config.ini eg:
+#### jenkins_jobs.ini eg:
     # Jenkins Jobs Ini example:
     [job_builder]
     ignore_cache=true
@@ -32,7 +32,7 @@ http://ci.openstack.org/jenkins-job-builder/installation.html
     password=YOUR_API_KEY
 
 ## Test and update meta-jjb-root job:
-    jenkins-jobs -l DEBUG --ignore-cache --conf .jenkins/jenkins_config.ini update -r globals:.jenkins/jobs.yml
+    jenkins-jobs -l DEBUG --ignore-cache --conf .jenkins/jenkins_jobs.ini update -r globals:.jenkins/jobs.yml
 
 ## Simulate a meta-jjb-root run locally
     JJB_GLOBALS_PATH=/tmp/jjb-globals bash builder.sh

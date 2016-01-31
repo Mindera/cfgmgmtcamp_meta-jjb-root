@@ -24,7 +24,7 @@
 
     builders:
       - shell: |
-          /usr/local/bin/jenkins-jobs -l DEBUG update $JJB_GLOBALS_PATH:.jenkins/jobs.yml
+          /usr/local/bin/jenkins-jobs -l DEBUG update /etc/jenkins_jobs/globals:.jenkins/jobs.yml
 
     publishers:
       - trigger-parameterized-builds:
@@ -55,4 +55,4 @@
 
     builders:
       - shell: |
-          /usr/local/bin/jenkins-view-builder -l DEBUG update $JJB_GLOBALS_PATH:.jenkins/views.yml
+          /usr/local/bin/jenkins-view-builder -l DEBUG update /etc/jenkins_jobs/globals:.jenkins/views.yml

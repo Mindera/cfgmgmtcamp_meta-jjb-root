@@ -86,7 +86,6 @@ then
         wget -q -P $plugins_folder http://updates.jenkins-ci.org/latest/$plugin.hpi
         chown jenkins: $plugins_folder/$plugin.hpi
     done
-    /etc/init.d/jenkins restart
 else
     echo "CHECK - Jenkins already installed"
 fi
@@ -96,7 +95,28 @@ echo "------------------------------------------------------------------"
 apt-get install -y git
 apt-get install -y python-setuptools
 easy_install pip
+pip install --upgrade setuptools
 pip install virtualenv
+pip install giturlparse.py
+pip install jenkins-job-builder
+pip install jenkins-view-builder
+
+mkdir -p /etc/jenkins_jobs
+cat <<JJBCONFIG > /etc/jenkins_jobs/jenkins_jobs.ini
+[job_builder]
+keep_descriptions=false
+recursive=true
+allow_duplicates=false
+allow_empty_variables=True
+
+[jenkins]
+url=http://localhost:8080/
+user=""
+password=""
+JJBCONFIG
+chown -R jenkins: /etc/jenkins_jobs
+
+/etc/init.d/jenkins restart
 
 echo "-------- PROVISIONING DONE ------------"
 echo "-- Jenkins: http://localhost:8080      "
