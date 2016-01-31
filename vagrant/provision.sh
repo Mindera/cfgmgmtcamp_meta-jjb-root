@@ -77,7 +77,7 @@ then
         token-macro
         dashboard-view
         maven-plugin
-        green-balls
+        greenballs
     )
 
     for plugin in "${plugins[@]}"
