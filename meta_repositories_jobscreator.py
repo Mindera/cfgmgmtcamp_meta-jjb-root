@@ -59,6 +59,7 @@ jjb_project = [{
         "name": "meta_repositories_jobscreator",
         "jobs": [
             "{repository}-jjb",
+            "{repository}-jvb"
         ],
         "repository": jjb_repositories
     }

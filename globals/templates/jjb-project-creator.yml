@@ -48,11 +48,11 @@
           included-region: '.jenkins/views.yml'
 
     triggers:
-      - pollscm: "H/5 * * * *"
+      - pollscm: "H/1 * * * *"
 
     wrappers:
       - timestamps
 
     builders:
       - shell: |
-          /usr/local/bin/jenkins-view-builder -l DEBUG update /etc/jenkins_jobs/globals:.jenkins/views.yml
+          /usr/local/bin/jenkins-view-builder -vv update .jenkins/views.yml --conf /etc/jenkins_jobs/jenkins_jobs.ini
