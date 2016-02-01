@@ -25,5 +25,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provision the box using a shell script
   # This script is copied into the box and then run
-  config.vm.provision :shell, :privileged => true, :path => "provision.sh"
+  config.vm.provision :shell, :privileged => true, :path => "vagrant_provision.sh"
 end
