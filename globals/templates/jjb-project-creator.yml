@@ -24,7 +24,7 @@
 
     builders:
       - shell: |
-          /usr/local/bin/jenkins-jobs -l DEBUG update /etc/jenkins_jobs/globals:.jenkins/jobs.yml
+          /usr/local/bin/jenkins-jobs -l DEBUG --ignore-cache update /etc/jenkins_jobs/globals:.jenkins/jobs.yml
 
     publishers:
       - trigger-parameterized-builds:
