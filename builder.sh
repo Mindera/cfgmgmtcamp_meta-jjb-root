@@ -40,7 +40,7 @@ echo -e "\n>>> Creating meta_repositories_jobscreator.yml"
 python meta_repositories_jobscreator.py
 
 echo -e "\n>>> Running JJB for meta_repositories_jobscreator.yml"
-jenkins-jobs -l $LOG_LEVEL $LOCALCONF update -r $JJB_GLOBALS_PATH:target/meta_repositories_jobscreator.yml
+jenkins-jobs -l $LOG_LEVEL $LOCALCONF --ignore-cache update -r $JJB_GLOBALS_PATH:target/meta_repositories_jobscreator.yml
 
 echo -e "\n>>> Deactivate virtual env"
 deactivate
